@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cybersecurity Course
 
 This repository documents my journey through the "Introduction to Cybersecurity v3.0" course by Cisco. Below are the key features:
