@@ -37,11 +37,6 @@
  | **Stored XSS in HTML (No Encoding)** | 2 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Injected stored XSS payload in an HTML page. | 
 
 
-### **✅ Summary & Key Learnings** - **Major security issues** such as XSS and Broken Access Control still exist. - **Session management improvements** are necessary to prevent token hijacking. - **Regular security scans** should be integrated into the development process. - 
-
-**Next Steps:** Re-run tests after developers apply fixes and verify patches.
-
-
 
 
 
