@@ -31,7 +31,10 @@
  | **OWASP ZAP Full Scan** | 3 | ✅ Completed | 26 Feb 2025 | 26 Feb 2025 | Conducted full dynamic analysis, documented security gaps. | 
 | **Report Writing & Updates** | 3 | ✅ Completed | 27 Feb 2025 | 27 Feb 2025 | Updated markdown reports for test findings. |
 | **GitHub Submission** | 1 | ✅ Completed | 27 Feb 2025 | 27 Feb 2025 | Pushed updated reports to repository and verified upload. |
-
+| **SQL Injection UNION Attack - Finding Column** | 2 | ✅ Solved | 1 Mar 2025 | 1 Mar 2025 | Identified columns with text data using UNION-based attack. | 
+| **SQL Injection UNION Attack - Extract Data** | 2 | ✅ Solved | 1 Mar 2025 | 1 Mar 2025 | Retrieved data from another table using UNION injection. |
+ | **Reflected XSS in HTML (No Encoding)** | 1.5 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Exploited reflected XSS in an HTML context with no encoding. |
+ | **Stored XSS in HTML (No Encoding)** | 2 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Injected stored XSS payload in an HTML page. | 
 
 
 ### **✅ Summary & Key Learnings** - **Major security issues** such as XSS and Broken Access Control still exist. - **Session management improvements** are necessary to prevent token hijacking. - **Regular security scans** should be integrated into the development process. - 
@@ -44,8 +47,5 @@
 
 
 
-| **SQL Injection UNION Attack - Finding Column** | 2 | ✅ Solved | 1 Mar 2025 | 1 Mar 2025 | Identified columns with text data using UNION-based attack. | 
-| **SQL Injection UNION Attack - Extract Data** | 2 | ✅ Solved | 1 Mar 2025 | 1 Mar 2025 | Retrieved data from another table using UNION injection. |
- | **Reflected XSS in HTML (No Encoding)** | 1.5 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Exploited reflected XSS in an HTML context with no encoding. |
- | **Stored XSS in HTML (No Encoding)** | 2 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Injected stored XSS payload in an HTML page. | 
+
 
