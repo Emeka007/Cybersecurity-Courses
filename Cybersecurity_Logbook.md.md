@@ -35,6 +35,9 @@
 | **SQL Injection UNION Attack - Extract Data** | 2 | ✅ Solved | 1 Mar 2025 | 1 Mar 2025 | Retrieved data from another table using UNION injection. |
  | **Reflected XSS in HTML (No Encoding)** | 1.5 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Exploited reflected XSS in an HTML context with no encoding. |
  | **Stored XSS in HTML (No Encoding)** | 2 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Injected stored XSS payload in an HTML page. | 
+ | **DOM XSS in `document.write` Using `location.search`** | 2 | ✅ Solved | 3 Mar 2025 | 3 Mar 2025 | Used `document.write` to execute malicious JavaScript. | 
+| **DOM XSS in `innerHTML` Using `location.search`** | 2 | ✅ Solved | 3 Mar 2025 | 3 Mar 2025 | Exploited `innerHTML` vulnerability to execute JavaScript. | 
+
 
 
 
