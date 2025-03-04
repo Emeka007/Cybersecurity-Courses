@@ -37,6 +37,8 @@
  | **Stored XSS in HTML (No Encoding)** | 2 | ✅ Solved | 2 Mar 2025 | 2 Mar 2025 | Injected stored XSS payload in an HTML page. | 
  | **DOM XSS in `document.write` Using `location.search`** | 2 | ✅ Solved | 3 Mar 2025 | 3 Mar 2025 | Used `document.write` to execute malicious JavaScript. | 
 | **DOM XSS in `innerHTML` Using `location.search`** | 2 | ✅ Solved | 3 Mar 2025 | 3 Mar 2025 | Exploited `innerHTML` vulnerability to execute JavaScript. | 
+| **DOM XSS in jQuery Anchor `href` Using `location.search`** | 2 | ✅ Solved | 4 Mar 2025 | 4 Mar 2025 | Used `location.search` to manipulate jQuery `href` attribute. | 
+| **DOM XSS in jQuery Selector Using `hashchange` Event** | 2 | ✅ Solved | 4 Mar 2025 | 4 Mar 2025 | Leveraged `hashchange` event for DOM-based XSS. |
 
 
 
