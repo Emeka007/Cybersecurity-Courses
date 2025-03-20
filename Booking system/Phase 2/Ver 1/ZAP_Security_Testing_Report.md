@@ -21,14 +21,14 @@ This report details the security testing conducted on the Booking System applica
 ### 3.2 Medium-Risk Vulnerabilities
 
 | Vulnerability        | Description                               | Affected Files | Risk Level |
-|----------------------|-------------------------------------------|---------------|
-| Hardcoded Credentials | Hardcoded admin passwords found         | env.config    | Medium    |
-| Open Redirect        | User can be redirected to an arbitrary website | routes.js |Medium    |
+|----------------------|-------------------------------------------|---------------|---------------|
+| Hardcoded Credentials | Hardcoded admin passwords found         | env.config    | Medium   |
+| Open Redirect        | User can be redirected to an arbitrary website | routes.js | Medium    |
 
 ### 3.3 Low-Risk Vulnerabilities
 
 | Vulnerability        | Description                                      | Affected Files | Risk Level |
-|----------------------|--------------------------------------------------|---------------|
+|----------------------|--------------------------------------------------|---------------|---------------|
 | Information Exposure | Verbose error messages revealing system details | error.log     |Low    |
 | Deprecated API Usage | Usage of outdated API functions                 | api.js        |Low    |
 
@@ -36,22 +36,22 @@ This report details the security testing conducted on the Booking System applica
 
 ### 4.1 High-Risk Issues
 
-| Vulnerability        | Description                                      | Affected URLs | | Risk Level |
-|----------------------|--------------------------------------------------|--------------|
+| Vulnerability        | Description                                      | Affected URLs |  Risk Level |
+|----------------------|--------------------------------------------------|--------------|---------------|
 | SQL Injection       | Input validation failure leading to SQL injection | /login      | High    |
 | Cross-Site Scripting | Unescaped input causing XSS vulnerability       | /profile    | High   |
 
 ### 4.2 Medium-Risk Issues
 
-| Vulnerability          | Description                          | Affected URLs || Risk Level |
-|------------------------|------------------------------------|--------------|
+| Vulnerability          | Description                          | Affected URLs | Risk Level |
+|------------------------|------------------------------------|--------------|---------------|
 | Missing Security Headers | Lack of CSP and X-Frame-Options | /dashboard  | Medium    |
 | Session Fixation       | Session ID remains unchanged after login | /session | Medium    |
 
 ### 4.3 Low-Risk Issues
 
-| Vulnerability      | Description                                | Affected URLs || Risk Level |
-|--------------------|------------------------------------------|--------------|
+| Vulnerability      | Description                                | Affected URLs | Risk Level |
+|--------------------|------------------------------------------|--------------|---------------|
 | Directory Listing | Files accessible without authentication | /uploads    |Low    |
 
 ## 5. Password Hacking Results
