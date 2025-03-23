@@ -13,17 +13,17 @@ This report details the security testing conducted on the Booking System applica
 
 ### 3.1 High-Risk Vulnerabilities
 
-| Vulnerability       | Description                              | Affected Files |  Risk Level | 
-|---------------------|----------------------------------------|---------------|---------------|
-| SQL Injection      | Unsanitized user input in SQL queries  | database.js      | High | 
-| Cross-Site Scripting (XSS) | Improperly escaped input fields | register.js    | High |
+| Vulnerability       | Description                              | Affected Files |
+|---------------------|----------------------------------------|---------------|
+| SQL Injection      | Unsanitized user input in SQL queries  | auth.php      |
+| Cross-Site Scripting (XSS) | Improperly escaped input fields | login.html    |
 
 ### 3.2 Medium-Risk Vulnerabilities
 
-| Vulnerability        | Description                               | Affected Files | Risk Level |
-|----------------------|-------------------------------------------|---------------|---------------|
-| Hardcoded Credentials | Hardcoded admin passwords found         | env.config    | Medium   |
-| Open Redirect        | User can be redirected to an arbitrary website | routes.js | Medium    |
+| Vulnerability        | Description                               | Affected Files |
+|----------------------|-------------------------------------------|---------------|
+| Hardcoded Credentials | Hardcoded admin passwords found         | config.php    |
+| Open Redirect        | User can be redirected to an arbitrary website | redirect.php |
 
 ### 3.3 Low-Risk Vulnerabilities
 
