@@ -47,13 +47,34 @@ Password hashing is the process of converting a plaintext password into a fixed-
 - Uses a precomputed table of hashes to quickly look up passwords.
 - **Mitigation**: Use salted hashes (Bcrypt, Argon2).
 
-## 4. Password Hashing with Node.js
+## 4. Password Cracking Results
 
-### Installation
+A brute-force attack was conducted using Hashcat to test password strength. The following results were observed:
 
-### Example Script for Hashing Passwords
+### Cracked Passwords
 
-### Verifying Passwords
+| Email | Password | Cracking Time |
+|----------------------------|---------------|----------------|
+| whatsupdoc@looneytunes.tv | carrots123 | 5 minutes |
+| doh@springfieldpower.net | donuts4life | 3 minutes |
+| darkknight@gothamwatch.org | iamvengeance | 7 minutes |
+| chimichanga@fourthwall.com | breaking4thwall | 10 minutes |
+| iamyourfather@deathstar.gov | darkside42 | 4 minutes |
+
+### Command Used
+
+The following Hashcat command was used to crack the MD5 password hashes:
+
+```sh
+hashcat -m 0 -a 0 hashes.txt rockyou.txt --force
+```
+
+#### Explanation:
+
+- `-m 0` specifies MD5 hashing.
+- `-a 0` specifies a dictionary attack.
+- `hashes.txt` contains the list of password hashes.
+- `rockyou.txt` is the wordlist used.
 
 ## 5. Defense Strategies Against Password Cracking
 
