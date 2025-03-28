@@ -55,11 +55,11 @@ A brute-force attack was conducted using Hashcat to test password strength. The 
 
 | Email | Password | Cracking Time |
 |----------------------------|---------------|----------------|
-| whatsupdoc@looneytunes.tv | carrots123 | 5 minutes |
-| doh@springfieldpower.net | donuts4life | 3 minutes |
-| darkknight@gothamwatch.org | iamvengeance | 7 minutes |
-| chimichanga@fourthwall.com | breaking4thwall | 10 minutes |
-| iamyourfather@deathstar.gov | darkside42 | 4 minutes |
+| whatsupdoc@looneytunes.tv | carrots123 | 15 minutes |
+| doh@springfieldpower.net | donuts4life | 13 minutes |
+| darkknight@gothamwatch.org | iamvengeance | 17 minutes |
+| chimichanga@fourthwall.com | breaking4thwall | 40 minutes |
+| iamyourfather@deathstar.gov | darkside42 | 40 minutes |
 
 ### Command Used
 
