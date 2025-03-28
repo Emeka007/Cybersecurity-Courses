@@ -76,9 +76,9 @@ hashcat -m 0 -a 0 hashes.txt rockyou.txt --force
 - `hashes.txt` contains the list of password hashes.
 - `rockyou.txt` is the wordlist used.
 
-```Cracking Duration:
+###Cracking Duration:
 It took approximately 20-30 minutes to crack the passwords using a mid-range GPU. more complex, unique, and lengthy passwords take longer to crack, even if the algorithm remains constant. This highlights the importance of using strong passwords and secure hashing algorithms. Results may vary depending on hardware performance
-```
+
 ## 5. Defense Strategies Against Password Cracking
 
 ✅ Use **Bcrypt** or **Argon2** instead of MD5/SHA1/SHA256.  
