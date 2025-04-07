@@ -51,3 +51,19 @@ Below is a list of backend endpoints discovered through OWASP ZAP and verified f
 
 ### Admin Access:
 - Full access to all endpoints as expected.
+
+### Conclusion
+The OWASP ZAP scan provided visibility into backend routes and their accessibility by different user roles:
+
+### ✔️ Positive Findings:
+- Admin-only APIs such as `/api/users` are correctly restricted from Guests and Reservers.
+- Static assets and login/session endpoints are properly exposed to all roles.
+
+### ⚠️ Key Issues:
+- **Reserver Endpoint Access**: Reservers may access specific resources or reservations via predictable IDs.
+- **Insecure Guest Exposure**: Endpoints like `/resources` are accessible by Guests through direct navigation.
+- **Potential BOLA Vulnerabilities**: Broken Object-Level Authorization risks exist in ID-based access patterns.
+
+### 🛠️ Recommendation:
+Implement strict backend checks to validate ownership and role before granting access to dynamic ID-based endpoints (e.g., `/reservation?id=14`).
+
