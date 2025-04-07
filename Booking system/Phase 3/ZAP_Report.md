@@ -1,37 +1,53 @@
-# OWASP ZAP Scan Report
+# 🔒 ZAP Security Testing – Discovered Endpoints
 
 ## Introduction
 
 This report provides a comprehensive analysis of the OWASP ZAP security scan conducted on the Booking System. The objective was to identify potential vulnerabilities, including injection flaws, broken authentication, and security misconfigurations.
 
-## Scan Details
+Below is a list of backend endpoints discovered through OWASP ZAP and verified for accessibility by different user roles.
 
-- **Tool Used:** OWASP ZAP  
-- **Scan Type:** Active Scan  
-- **Application Tested:** Booking System Web Application  
-- **Environment:** Local Environment  
-- **Scan Date:** 2025-04-02  
+---
 
-## Vulnerabilities Detected
+## 📋 Endpoint Access Matrix
 
-| Vulnerability ID | Description                     | Risk Level | Solution                                      |
-|------------------|---------------------------------|------------|-----------------------------------------------|
-| ZAP-001          | Cross-Site Scripting (XSS)      | High       | Implement input validation and encoding       |
-| ZAP-002          | SQL Injection                   | Critical   | Use parameterized queries and ORM tools       |
-| ZAP-003          | Missing Secure Headers          | Medium     | Add security headers (HSTS, CSP, X-Frame-Options) |
-| ZAP-004          | Information Disclosure          | Low        | Hide sensitive data in error messages         |
+| Endpoint URL                      | Guest | Reserver | Admin | Notes                                       |
+|----------------------------------|--------|----------|--------|---------------------------------------------|
+| `/api/users`                     | ❌     | ❌       | ✅     | Admin-only user list                        |
+| `/api/resources`                 | ❌     | ✅       | ✅     | Accessible via GET                          |
+| `/api/resources/13`             | ❌     | ✅       | ✅     | Resource detail view                        |
+| `/api/reservations/14`         | ❌     | ✅       | ✅     | Reserver may access own reservation only?   |
+| `/api/session`                  | ✅     | ✅       | ✅     | Returns session/login info                  |
+| `/logout`                        | ❌     | ❌       | ✅     | Admin can log out                           |
+| `/register`                      | ✅     | ✅       | ✅     | Registration page                           |
+| `/reservation`                   | ❌     | ✅       | ✅     | Reserver can make/edit reservations         |
+| `/reservation?id=14`            | ❌     | ✅       | ✅     | Reservation with specific ID                |
+| `/resources`                     | ✅     | ✅       | ✅     | Accessible resource list                    |
+| `/resources?id=13`             | ✅     | ✅       | ✅     | Resource with specific ID                   |
+| `/static/reservationsForm.js`  | ✅     | ✅       | ✅     | Public JS file                              |
+| `/static/resourceForm.js`      | ✅     | ✅       | ✅     | Public JS file                              |
 
-## Risk Analysis
+---
 
-The scan identified multiple vulnerabilities, including critical SQL injection flaws and XSS issues. Immediate remediation is advised to reduce exposure to attacks.
+## 📝 Notes
 
-## Recommendations
+- Endpoints like `/api/resources` and `/api/reservations/14` are accessible by both the reserver and admin, while guests are restricted.
+- Admin-only resources include `/api/users` and `/logout`.
+- Guest users have access to public pages such as `/register` and `/static/reservationsForm.js`.
+- Reserver-only access for endpoints like `/reservation` and `/reservation?id=14` for managing their own reservations.
 
-- Implement input validation and output encoding
-- Use prepared statements and ORM tools to prevent SQL injection
-- Configure secure headers (HSTS, CSP, X-Frame-Options)
-- Regularly scan and patch vulnerabilities
+---
 
-## Conclusion
+## 🧠 Key Observations
 
-The ZAP scan uncovered vulnerabilities that require immediate attention. Addressing these issues will strengthen the security posture of the Booking System and reduce potential risks.
+### Guest Access:
+- Can access static files and session endpoint.
+- Restricted from reservation/resource data.
+- ⚠️ Can try accessing `/resources` via direct URL (*12).
+
+### Reserver Access:
+- Can access their own resources and reservations.
+- ⚠️ May access or edit others' reservations via ID in URL (*16).
+- Can change reserver name (*11) — potential impersonation or data integrity risk.
+
+### Admin Access:
+- Full access to all endpoints as expected.
