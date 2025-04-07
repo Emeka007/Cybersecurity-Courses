@@ -1,37 +1,65 @@
-# Role-Based Access Control Test Matrix
+# ✅ Test Matrix
 
-## Introduction
+## 📊 Access Matrix Overview
 
-This document presents a role-based access control (RBAC) matrix for the Booking System, outlining the permissions for different user roles. The objective is to ensure appropriate access rights are enforced for each role.
+| Page / Feature                          | Guest        | Reserver        | Administrator      |
+|----------------------------------------|--------------|------------------|---------------------|
+| `/`                                    | ✅           | ✅               | ✅                  |
+| └─ View resource form                  | ❌           | ✅               | ✅ (*note added)    |
+| └─ Create new resource                 | ❌ (*1)      | ❌ (*2)          | ✅ (*3)             |
+| `/login`                               | ✅           | ✅               | ✅                  |
+| └─ Register new account                | ✅ (*4)      | ✅ (*4)          | ✅ (*4)             |
+| └─ Email validation                    | ✅ (*5)      | ✅ (*5)          | ✅ (*5)             |
+| └─ Password validation                 | ✅ (*6)      | ✅ (*6)          | ✅ (*6)             |
+| └─ Age restriction (15+)               | ✅ (*14)     | ✅ (*14)         | ✅ (*14)            |
+| └─ Login with wrong creds              | ❌ (*7)      | ❌ (*7)          | ❌ (*7)             |
+| `/reservation`                         | ❌ (*8)      | ✅               | ✅                  |
+| └─ View all reservations               | ❌ (*15)     | ✅               | ✅                  |
+| └─ Create reservation                  | ❌           | ✅               | ✅                  |
+| └─ Validation: date logic              | ❌           | ✅ (*9)          | ✅ (*9)             |
+| └─ Edit own reservation                | ❌           | ✅ (*10)         | ✅                  |
+| └─ Edit others' reservation            | ❌           | ❌ (*16)         | ✅                  |
+| └─ Change reserver name                | ❌           | ✅ (*11)         | ✅                  |
+| └─ Edit resource from reservation      | ❌           | ❌               | ✅                  |
+| └─ Edit reservation dates              | ❌           | ✅ (own only)    | ✅                  |
+| └─ Date picker missing time            | ❌           | ✅ (*17)         | ✅                  |
+| `/resources`                           | ✅ (*12)     | ✅               | ✅                  |
+| └─ Add new resource                    | ✅ (*12)     | ❌               | ✅                  |
+| └─ Symbols & numbers allowed           | ✅           | ✅               | ✅                  |
+| Other: Email uniqueness                | ✅ (*13)     | ✅ (*13)         | ✅ (*13)            |
 
-## Roles and Permissions
+---
 
-| Role  | View Dashboard | View Profile | Modify Profile | Access Admin Panel | Manage Users | Delete Records |
-|-------|----------------|--------------|----------------|--------------------|--------------|----------------|
-| Admin | ✅             | ✅           | ✅             | ✅                 | ✅           | ✅             |
-| User  | ✅             | ✅           | ✅             | ❌                 | ❌           | ❌             |
-| Guest | ❌             | ❌           | ❌             | ❌                 | ❌           | ❌             |
+## 📝 Notes Summary
 
-## Testing Scenarios
+- **(*1)**: Guest can access resource creation via URL – unintended
+- **(*2)**: Reserver cannot add new resource
+- **(*3)**: Admin can add and edit resources
+- **(*4)**: Cannot reuse existing email
+- **(*5)**: Email must follow proper format
+- **(*6)**: Password must be minimum 8 characters
+- **(*7)**: Invalid login attempt fails as expected
+- **(*8)**: Guest unauthorized to view `/reservation`
+- **(*9)**: Reservation start date must be before end date
+- **(*10)**: Reserver can only edit their reservations
+- **(*11)**: Reserver can edit their displayed name (integrity concern)
+- **(*12)**: Guest can access resource form directly via URL
+- **(*13)**: Enforced email uniqueness
+- **(*14)**: Users must be at least 15 years old
+- **(*15)**: Ambiguity in guest visibility of reservations (read-only?)
+- **(*16)**: Reserver can access/edit others’ reservations via URL (security flaw)
+- **(*17)**: Date picker lacks time component
 
-| Test Case ID | Role  | Action               | Expected Outcome  | Actual Outcome    |
-|--------------|-------|----------------------|-------------------|-------------------|
-| TC-01        | Admin | Access admin panel   | Access granted    | Access granted    |
-| TC-02        | User  | Access admin panel   | Access denied     | Access denied     |
-| TC-03        | Guest | Access user profile  | Access denied     | Access denied     |
-| TC-04        | Admin | Delete records       | Access granted    | Access granted    |
-| TC-05        | User  | Modify own profile   | Access granted    | Access granted    |
+---
 
-## Findings
+## 📌 Conclusion
 
-- RBAC is effectively implemented with minor improvements needed for handling unauthorized access attempts.
-- No privilege escalation vulnerabilities were identified.
+The matrix clearly demonstrates role-based functionality and reveals multiple privilege bypasses and misconfigured permissions, particularly involving **Guest** and **Reserver** roles.
 
-## Recommendations
+### ⚠️ Key Findings:
+- **Guests** can access restricted areas (like resource creation forms) via direct URLs, bypassing UI restrictions.
+- **Reservers** are able to perform unauthorized actions, such as editing others’ reservations or changing reserver names — indicating broken access control.
+- Several input validation issues (date logic, email format, password strength) require backend enforcement.
 
-- Implement detailed logging for unauthorized access attempts.
-- Regularly review and update access control policies.
-
-## Conclusion
-
-The role-based access control (RBAC) model is functioning correctly, with minor recommendations for improved security and monitoring.
+### 🛠️ Recommendation:
+Implement robust server-side access control and validation. Ensure that frontend restrictions are supported by backend enforcement to avoid privilege escalation or unauthorized access across all user roles.
