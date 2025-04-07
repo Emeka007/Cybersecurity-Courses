@@ -1,5 +1,5 @@
 
-# ZAP by Checkmarx Scanning Report
+# Scanning Report
 
 ## Summary of Alerts
 
