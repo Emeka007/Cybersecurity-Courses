@@ -39,7 +39,36 @@
 | **DOM XSS in `innerHTML` Using `location.search`** | 2 | ✅ Solved | 3 Mar 2025 | 3 Mar 2025 | Exploited `innerHTML` vulnerability to execute JavaScript. | 
 | **DOM XSS in jQuery Anchor `href` Using `location.search`** | 2 | ✅ Solved | 4 Mar 2025 | 4 Mar 2025 | Used `location.search` to manipulate jQuery `href` attribute. | 
 | **DOM XSS in jQuery Selector Using `hashchange` Event** | 2 | ✅ Solved | 4 Mar 2025 | 4 Mar 2025 | Leveraged `hashchange` event for DOM-based XSS. |
-
+| **Phase1-Ver1: Cloned and reviewed the application** | 1 | 10/02/2025 | 20/02/2025 | ✅ Done | Set up the application for testing. |
+| **Phase1-Ver1: Docker environment setup** | 1 | 10/02/2025 | 20/02/2025 | ✅ Done | App running locally, tested with browser. |
+| **Phase1-Ver1: Initial scan** | 2 | 10/02/2025 | 20/02/2025 | ✅ Done | Found CSRF, XSS, insecure headers. |
+| **Phase1-Ver1: Manual testing** | 1.5 | 10/02/2025 | 20/02/2025 | ✅ Done | Observed hidden fields, session tokens. |
+| **Phase1-Ver1: Static code analysis** | 1.5 | 10/02/2025 | 20/02/2025 | ✅ Done | Found hardcoded secrets. |
+| **Phase1-Ver1: SQL Injection attempt** | 1.5 | 10/02/2025 | 20/02/2025 | ✅ Done | Tested login/search – no major findings. |
+| **Phase1-Ver1: Created ZAP Report** | 1 | 10/02/2025 | 20/02/2025 | ✅ Done | Saved as ZAP_Report_Initial.md. |
+| **Phase1-Ver1: Wrote initial Test Report** | 1 | 10/02/2025 | 20/02/2025 | ✅ Done | Logged all vulnerabilities and fixes. |
+| **Phase1-Ver2: Pulled updated version from GitHub** | 0.5 | 22/02/2025 | 05/03/2025 | ✅ Done | Ver2 ready for retesting. |
+| **Phase1-Ver2: Docker relaunch** | 0.5 | 22/02/2025 | 05/03/2025 | ✅ Done | App relaunched successfully. |
+| **Phase1-Ver2: Retesting with ZAP** | 2 | 22/02/2025 | 05/03/2025 | ✅ Done | Verified fixed vulnerabilities. |
+| **Phase1-Ver2: Manual validation of previous issues** | 1 | 22/02/2025 | 05/03/2025 | ✅ Done | CSRF fix confirmed, XSS partially fixed. |
+| **Phase1-Ver2: Updated Test Report** | 1 | 22/02/2025 | 05/03/2025 | ✅ Done | Comparison table between Ver1 and Ver2. |
+| **Phase1-Ver2: Second ZAP Report** | 1 | 22/02/2025 | 05/03/2025 | ✅ Done | Saved as ZAP_Report_Updated.md. |
+| **Phase1-Ver2: SQLMap update** | 1 | 22/02/2025 | 05/03/2025 | ✅ Done | Documented as SQLMap_Results.md. |
+| **Phase1-Ver2: GitHub structure update** | 0.5 | 22/02/2025 | 05/03/2025 | ✅ Done | All files committed under Phase 1. |
+| **Phase2-Ver1: Password cracking (hashes)** | 2.5 | 07/03/2025 | 16/03/2025 | ✅ Done | Cracked common weak passwords. |
+| **Phase2-Ver1: Created hash list and report** | 1 | 07/03/2025 | 16/03/2025 | ✅ Done | File: Password_Hashes.md. |
+| **Phase2-Ver1: Brute-force testing (login page)** | 2 | 07/03/2025 | 16/03/2025 | ✅ Done | Found valid combinations. |
+| **Phase2-Ver1: Added results to report** | 1 | 07/03/2025 | 16/03/2025 | ✅ Done | Included commands and time taken. |
+| **Phase2-Ver1: Uploaded to GitHub** | 0.5 | 07/03/2025 | 16/03/2025 | ✅ Done | Under Phase 2/Ver 1. |
+| **Phase2-Ver2: Revalidated password security** | 1.5 | 18/03/2025 | 23/03/2025 | ✅ Done | Some accounts still using weak passwords. |
+| **Phase2-Ver2: Added results to Phase 2 report** | 1 | 18/03/2025 | 23/03/2025 | ✅ Done | Updated existing file. |
+| **Phase2-Ver2: Additional Burp Suite login fuzzing** | 1 | 18/03/2025 | 23/03/2025 | ✅ Done | No lockout policy detected. |
+| **Phase2-Ver2: Discussion posted on forum** | 0.5 | 18/03/2025 | 23/03/2025 | ✅ Done | Shared password cracking insights. |
+| **Phase3: Role-Based Access Control Testing** | 2 | 25/03/2025 | 05/04/2025 | ✅ Done | Tested routes for users/admins. |
+| **Phase3: Created Authorization Test Matrix** | 1 | 25/03/2025 | 05/04/2025 | ✅ Done | Logged each role’s access level. |
+| **Phase3: Session hijacking tests** | 1.5 | 25/03/2025 | 05/04/2025 | ✅ Done | Session ID predictable. Reported. |
+| **Phase3: Final Report Compilation** | 2 | 25/03/2025 | 05/04/2025 | ✅ Done | All findings wrapped into summary. |
+| **Phase3: Repo updated and cleaned** | 1 | 25/03/2025 | 05/04/2025 | ✅ Done | All phases organized and pushed. |
 
 
 
