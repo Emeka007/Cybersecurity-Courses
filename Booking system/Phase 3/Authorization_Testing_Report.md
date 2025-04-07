@@ -79,4 +79,19 @@ The following methods were used for testing:
 17. Time not available in date picker while reserving  
 
 
-The authorization testing confirms the Booking System's access control mechanisms are effective, with minor improvements suggested for optimal security.
+###   Conclusion
+
+Authorization testing revealed several areas where role-based access control is functioning correctly, but also uncovered some significant weaknesses:
+
+### ✔️ Positive Findings:
+- Basic navigation and authentication routes behave as expected across roles.
+- Role-specific actions like creating/editing resources are generally restricted to the Administrator role.
+
+### ⚠️ Key Issues:
+- **Guest Access to Restricted Pages**: Guests can bypass front-end restrictions using direct URLs to access or manipulate resources.
+- **Reserver Privilege Escalation**: Reservers may edit other users’ reservations or change reservation names, indicating potential broken access control (BAC).
+- **Missing Input Validations**: Elements like the date picker and field validations need improvements to enforce proper business logic.
+
+### 🛠️ Recommendation:
+Strengthen server-side access control, especially for reservations and resources. Add backend role checks and audit key endpoints for bypasses.
+
