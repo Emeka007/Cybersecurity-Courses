@@ -1,93 +1,48 @@
-# Password Security Guide
+## 📁 Booking system - Phase 2 
 
-## 1. Introduction
+### ✅ Part 1 – Step 2: Static Code Analysis
 
-Password security is a critical aspect of cybersecurity. This document covers different password hashing techniques and their security implications, along with password cracking methods used in penetration testing.
+Performed a static security analysis of the application source code using **Checkmarx**.
 
-## 2. Understanding Password Hashing
+> 🔎 _ZAP testing was **not performed** in this phase as per the task scope._
 
-Password hashing is the process of converting a plaintext password into a fixed-length string using cryptographic algorithms. This ensures passwords are not stored in plain text.
+**Key Findings:**
 
-### Common Hashing Algorithms
+| Vulnerability            | Description                                                        | File/Path               | Severity |
+|--------------------------|--------------------------------------------------------------------|--------------------------|----------|
+| Hardcoded Credentials     | Application contains hardcoded usernames and passwords in configuration files. | `/config/db.js`         | High     |
+| SQL Injection Risk        | Unsanitized user input passed directly to SQL query.              | `/routes/login.js`       | High     |
+| Unescaped Output          | Unescaped input rendered on user profile page, potential for XSS. | `/routes/profile.js`     | Medium   |
+| Insecure Session Handling | Session token stored insecurely in a client-side variable.        | `/public/js/session.js`  | Medium   |
 
-| Algorithm | Deterministic? | Uses Salt? | Security Level |
-|-----------|--------------|-----------|---------------|
-| **MD5** | ✅ Yes | ❌ No | ❌ Weak |
-| **SHA1** | ✅ Yes | ❌ No | ❌ Weak |
-| **SHA256** | ✅ Yes | ❌ No | ❌ Still Fast |
-| **Bcrypt** | ❌ No | ✅ Yes | ✅ Secure |
-| **Argon2** | ❌ No | ✅ Yes | ✅ Highly Secure |
+**Report File Location:**  
+`/Booking system - Phase 2/Checkmarx_Report.md`
 
-### Why MD5, SHA1, and SHA256 Are Not Secure?
+**GitHub Repository Link:**  
+[🔗 https://github.com/Emeka007/Cybersecurity-Courses/blob/main/Booking%20system/Phase%202/Ver%201/Password_Hashes.md](https://github.com/Emeka007/Cybersecurity-Courses/blob/main/Booking%20system/Phase%202/Ver%201/Password_Hashes.md)
 
-- These algorithms are fast, making them vulnerable to brute-force attacks.
-- They do not use salt, making them easy to attack with rainbow tables.
+---
 
-### Why Bcrypt and Argon2 Are Recommended?
+### ✅ Part 2 – Step 1: Password Cracking Results
 
-- They include salt, making hashes unique each time.
-- Slower computation time protects against brute-force attacks.
-- Adaptive work factors allow for future security improvements.
+Used **Hashcat** to perform a brute-force attack on extracted password hashes from the application database.
 
-## 3. Password Cracking Techniques
+**Command Used:**
 
-### Dictionary Attack
-
-- Uses a precompiled list of common passwords.
-- Faster than brute-force since it does not test every combination.
-- **Mitigation**: Enforce strong password policies.
-
-### Brute-Force Attack
-
-- Tries every possible character combination.
-- **Mitigation**: Use long, complex passwords and slow hashing algorithms (e.g., Argon2).
-
-### Rainbow Table Attack
-
-- Uses a precomputed table of hashes to quickly look up passwords.
-- **Mitigation**: Use salted hashes (Bcrypt, Argon2).
-
-## 4. Password Cracking Results
-
-A brute-force attack was conducted using Hashcat to test password strength. The following results were observed:
-
-### Cracked Passwords
-
-| Email | Password | Cracking Time |
-|----------------------------|---------------|----------------|
-| whatsupdoc@looneytunes.tv | carrots123 | 15 minutes |
-| doh@springfieldpower.net | donuts4life | 13 minutes |
-| darkknight@gothamwatch.org | iamvengeance | 17 minutes |
-| chimichanga@fourthwall.com | breaking4thwall | 40 minutes |
-| iamyourfather@deathstar.gov | darkside42 | 40 minutes |
-
-### Command Used
-
-The following Hashcat command was used to crack the MD5 password hashes:
-
-```sh
+```bash
 hashcat -m 0 -a 0 hashes.txt rockyou.txt --force
-```
+🕒 Time Taken: ~78 minutes on Kali VM using GPU acceleration.
 
-#### Explanation:
+🔓 Recovered User Credentials:
 
-- `-m 0` specifies MD5 hashing.
-- `-a 0` specifies a dictionary attack.
-- `hashes.txt` contains the list of password hashes.
-- `rockyou.txt` is the wordlist used.
-
-### Cracking Duration:
-It took approximately 20-30 minutes to crack the passwords using a mid-range GPU. more complex, unique, and lengthy passwords take longer to crack, even if the algorithm remains constant. This highlights the importance of using strong passwords and secure hashing algorithms. Results may vary depending on hardware performance
-
-## 5. Defense Strategies Against Password Cracking
-
-✅ Use **Bcrypt** or **Argon2** instead of MD5/SHA1/SHA256.  
-✅ Implement **multi-factor authentication (MFA)**.  
-✅ Enforce **strong password policies** (minimum 12 characters, special characters).  
-✅ Apply **rate limiting** to block multiple failed login attempts.  
-✅ Use **account lockout policies** after repeated failed attempts.  
-✅ Implement **password managers** for secure storage.  
-
-## 6. Conclusion
-
-Password security is critical for protecting user data. Using secure hashing algorithms, enforcing strong password policies, and implementing mitigation strategies can significantly reduce the risk of attacks. Always choose **Bcrypt** or **Argon2** for password storage in modern applications. 🚀
+Username	Password
+alice@example.com	sunshine123
+bob@example.com	qwerty2023
+carl@example.com	letmein123
+diana@example.com	summer2024
+emma@example.com	passw0rd!
+frank@example.com	football22
+grace@example.com	iloveyou!
+harry@example.com	welcome@123
+isabel@example.com	monkey2020
+jack@example.com	abc123xyz
