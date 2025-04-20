@@ -68,5 +68,13 @@
 | **Phase3: Session hijacking tests** | 1.5 | ✅ Completed  | 25/03/2025 | 29/03/2025 |  Session ID predictable. Reported. |
 | **Phase3: Final Report Compilation** | 2 | ✅ Completed |   25/03/2025 | 31/03/2025 | All findings wrapped into summary. |
 | **Phase3: Repo updated and cleaned** | 1 | ✅ Completed |   25/03/2025 | 03/04/2025 | All phases organized and pushed. |
+| **Phase4: Environment Setup & Folder Creation** | 1 | ✅ Completed | 10/04/2025 | 10/04/2025 | Resolved folder/file conflicts, ensured correct directory structure. |
+| **Phase4: Repository Cloning** | 0.5 | ✅ Completed | 10/04/2025 | 10/04/2025 | Cloned latest repo version to new device for Phase 4 work. |
+| **Phase4: File/Directory Cleanup** | 1 | ✅ Completed | 11/04/2025 | 11/04/2025 | Removed duplicate folders, fixed access denied issues, ensured fresh environment. |
+| **Phase4: Compliance_Report.md Created** | 0.5 | ✅ Completed | 11/04/2025 | 11/04/2025 | Created markdown report file to document compliance analysis. |
+| **Phase4: Initial Compliance Research** | 2 | ✅ Completed | 12/04/2025 | 12/04/2025 | Reviewed relevant frameworks (e.g., ISO 27001, GDPR), planned structure of report. |
+| **Phase4: Risk Assessment Drafting** | 2 | ✅ Completed | 13/04/2025 | 13/04/2025 | Identified risks, added initial findings and mitigation strategies. |
+| **Phase4: Compliance Report Writing** | 2.5 | ✅ Completed | 14/04/2025 | 14/04/2025 | Finalized report contents, aligned with OWASP Top 10 compliance. |
+| **Phase4: Final Review & GitHub Push** | 1 | ✅ Completed | 15/04/2025 | 15/04/2025 | Pushed report and Phase 4 folder to GitHub, verified successful upload. |
 
 
