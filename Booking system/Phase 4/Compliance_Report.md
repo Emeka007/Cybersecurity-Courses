@@ -133,6 +133,87 @@ Phase 4 of the GDPR compliance assessment for the booking system demonstrates a 
 
 ---
 
+# 📋 GDPR Compliance Checklist – Web-based Booking System
+
+## 🗂️ Personal Data Mapping and Minimization
+
+| Result | Description |
+|--------|-------------|
+| ⚠️ | Personal information such as name, email, and age is collected during registration, but there's no clear documentation or centralized tracking of this data. |
+| ✅ | The system only collects the essential personal data needed. |
+| ✅ | Users under 15 years old are not allowed to register in the Booking System. |
+
+## 👥 User Registration and Management
+
+| Result | Description |
+|--------|-------------|
+| ⚠️ | There is a checkbox for "I accept Terms of Service," but it becomes blank after clicking the terms. |
+| ❌ | No clear option for users to edit or delete their accounts. |
+| ⚠️ | The basic framework exists for deleting users, but the complete "right to be forgotten" functionality hasn't been fully implemented yet. |
+| ✅ | Users under 15 cannot register or book. |
+
+## 📆 Booking Visibility
+
+| Result | Description |
+|--------|-------------|
+| ✅ | Only the resource name and booking period are visible. |
+| ❌ | Regular users can access other users' personal data (e.g., email), which is a violation of GDPR and requires proper access control and anonymization. |
+
+## 🔐 Access Control and Authorization
+
+| Result | Description |
+|--------|-------------|
+| ❌ | Administrators lack the delete function. Users can modify other users’ bookings and resources. |
+| ✅ | The system clearly defines user roles. |
+| ⚠️ | There is no audit log or safeguards regarding data use. |
+
+## 🛠️ Privacy by Design Principles
+
+| Result | Description |
+|--------|-------------|
+| ❌ | Administrators cannot delete data, and reservers can alter other users' bookings and resources. |
+| ✅ | No critical errors were found in logging activities. |
+| ⚠️ | Registration and login forms support data minimization, but security issues exist (e.g., lack of HTTPS, no brute-force protection). |
+
+## 🔒 Data Security
+
+| Result | Description |
+|--------|-------------|
+| ❌ | No CSRF token in forms. Lack of security protections and database sanitization. |
+| ✅ | Passwords are securely hashed using bcryptjs. |
+| ⚠️ | No mention of backup or recovery procedures. |
+| ⚠️ | Unclear if data is stored in GDPR-compliant data centers. |
+
+## 🧪 Data Anonymization and Pseudonymization
+
+| Result | Description |
+|--------|-------------|
+| ❌ | Personal data is stored without anonymization or retention policy. |
+| ❌ | No evidence of pseudonymization techniques. |
+
+## 🙋 Data Subject Rights
+
+| Result | Description |
+|--------|-------------|
+| ❌ | No feature for users to download their personal data. |
+| ❌ | Users cannot delete their accounts. |
+| ❌ | No mechanism to withdraw consent. |
+
+## 📚 Documentation and Communication
+
+| Result | Description |
+|--------|-------------|
+| ⚠️ | Privacy policy link is present but blank. |
+| ⚠️ | Unclear if data protection documentation is shared with developers/admins. |
+| ❌ | No documented data breach response procedure. |
+
+### Legend:
+- ✅ Pass (can be clarified or added)
+- ❌ Fail (requires attention)
+- ⚠️ Attention needed (review and improve)
+
+
+
 ## 📌 Recommendations
 
 - ✅ **Audit age restriction logic** — enforce on both client and server.
